@@ -71,7 +71,7 @@ class BotLegs:
         self.move=0
 
 if __name__ == "__main__":
-    bot = botlegs.BotLegs()
+    bot = BotLegs()
     bot.up()
     time.sleep_ms(1000)
     #move forward 5 seconds
