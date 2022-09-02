@@ -15,9 +15,6 @@ wlan = network.WLAN(network.STA_IF)
 wlan.active(True)
 wlan.connect(secrets['ssid'],secrets['pw'])
 
-
-wlan.connect(secrets['ssid'],secrets['pw'])
-
 #set 10 seconds for time out delay
 wlandelay =  time.ticks_ms() + 10000
 
