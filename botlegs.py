@@ -33,14 +33,14 @@ class BotLegs:
 
 
     ''' movement
-          fwd = (0,1)           done
-          fwd_right = (1,1)     - not working yet
-          rotate_right = (1,0)  done
-          back_right = (1, -1)  - ...
-          back = (0,-1)         done
-          back_left = (-1,-1)   - ...
-          rotate_left = (-1,0)  done
-          fwd_left = (-1,1)     - ...
+          fwd = (0,1)
+          fwd_right = (1,1)
+          rotate_right = (1,0)
+          back_right = (1, -1)
+          back = (0,-1)
+          back_left = (-1,-1)
+          rotate_left = (-1,0)
+          fwd_left = (-1,1)
           each movement will start with all legs UP
     '''
 
@@ -61,8 +61,8 @@ class BotLegs:
 
 
 
+    # next modification will be to use only one table but change L,R variable accordingly
     def TimerFlag(self,_timer):
-
         # check modulus 4 to check next step change
         if (self.counter % 4)==0:
                 self.CurrentMove = self.move
@@ -71,7 +71,6 @@ class BotLegs:
         # skip diagonal for now
         if self.CurrentMove[0]==0:
             #forward or backward
-
             if self.CurrentMove[1] >0:
                 self.counter +=1
             else:
@@ -88,21 +87,22 @@ class BotLegs:
             self.set(self.rotate[self.counter])
         else:
             #rotate and  straight
-            if self.counter < 4:
-                if self.CurrentMove[0] >0:
-                    self.counter +=1
-                else:
-                    self.counter +=7
-                self.counter = self.counter % 8
-                self.set(self.rotate[self.counter])
+            if self.CurrentMove[0] > 0:
+                L = 1.2
+                R = 0.6
             else:
-                if self.CurrentMove[1] >0:
-                    self.counter +=1
-                else:
-                    self.counter +=7
-                self.counter = self.counter % 8
-                self.set(self.straight[self.counter])
-
+                L = 0.6
+                R = 1.2
+            if self.CurrentMove[1] >0:
+                self.counter +=1
+            else:
+                self.counter +=7
+            self.counter = self.counter % 8
+            nextstep = (self.straight[self.counter][0] * L,
+                        self.straight[self.counter][1] * R,
+                        self.straight[self.counter][2] * L,
+                        self.straight[self.counter][3] * R)
+            self.set(nextstep)
 
 
 
@@ -139,9 +139,20 @@ class BotLegs:
         self.move=(1,0)
 
 
+
 if __name__ == "__main__":
     bot = BotLegs()
     #adjust servo
+    # on first time remove adjustment
+    # use bot.up() and ajust arm to be up and perpendicular
+    # next use  on each servo adjustCenter(x) where x is set to be perpendicular 1.5ms is normally the center
+    # then use on each servo  angle(45) and play withe the factor to have all servo with the same span
+    #  ex : bot.BR.adjustCenter(1.4)
+    #       bot.BR.angle(45)
+    #       bot.BR.factor(1.2)
+    #       bot.BR.angle(45)
+    # once is done for all just add the settings after you create the BotLegs()
+
     bot.BR.center_ms=1.4
     bot.BL.factor=1.1
     bot.FL.factor=1.1
