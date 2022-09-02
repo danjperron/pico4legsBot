@@ -8,24 +8,23 @@ from machine import Pin,PWM
 # if you go behond +/- 45 degree not all servo are egual
 
 
-class Servo:
+class Servo(PWM):
     
     def __init__(self , pin, invert=False, factor=1.0):
         self.pwm = PWM(pin)
         self.pwm.freq(50)
         self.centerms= 1.5
-        self.invert = invert
-        self.factor = factor
+        self.factor = 1.0
         
     def setms(self, timems):
         #from milli second to  nano second
         self.pwm.duty_ns(int(timems * 1000000))
         
     def angle(self, Angle):
-        if self.invert:
-            self.setms(self.centerms  + self.factor*(-Angle* 0.5 /45.0))
+        if invert:
+            self.setms(self.centerms  + self.factor * (-Angle* 0.5 /45.0))
         else:
-            self.setms(self.centerms  + self.factor*(Angle* 0.5 /45.0))
+            self.setms(self.centerms  + self.factor * (Angle* 0.5 /45.0))
 
     def adjustCenter(self,valuems):
         self.centerms=valuems

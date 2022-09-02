@@ -38,11 +38,8 @@ while True:
 
     clock.tick(5)
 
-#     packet = struct.pack("hh",x,y)
-    packet = struct.pack("h",x)
-#    print(packet)
-#    bpacket= bytes(packet,encoding="utf-8")
-#    print(bpacket)
+    packet = struct.pack("hh",x,y)
+    print("packet:",packet)
     sock.sendto(packet,(bot_IP,bot_PORT))
 
 
