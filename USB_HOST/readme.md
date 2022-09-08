@@ -2,12 +2,12 @@
 1 - add gamepad_hw.c and hid_app.c in ports/rp2 <br>
 2 - insert function poll_gamepad(). in line 84 of main.c<br>
 
-extern void hid_app_task(void);
-     void poll_gamepad(void)
-{
-           tuh_task();
-           hid_app_task();
-}
+          extern void hid_app_task(void);
+               void poll_gamepad(void)
+          {
+                     tuh_task();
+                     hid_app_task();
+          }
 
 3 - in main.c line 173. I added the poll_gamepad globally and force the hat to be center until it connects <br>
 
@@ -29,7 +29,7 @@ extern void hid_app_task(void);
 
 8- recompile<br>
 
-9- To get the game pad working you need to active the python module gamepad
+9- To get the game pad working you need to activate the python module gamepad
 
         // from gamepad import GamePad
         gp = GamePad()
