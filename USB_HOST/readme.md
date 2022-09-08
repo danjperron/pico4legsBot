@@ -1,3 +1,4 @@
+PRELIMINARY 
 
 1 - add gamepad_hw.c and hid_app.c in ports/rp2 <br>
 2 - insert function poll_gamepad(). in line 84 of main.c<br>
@@ -36,3 +37,13 @@
         gp.hat() -> will return (x,y) coordonate of the hat
         gp.get() -> will return the 10 bytes record of the gamepad. X,Y,Z,Rx,Ry,Hat, buttons. 32 bits for buttons
         
+N.B. You need to provide 5V on Vsys and Vusb since no power will be delivered from usb port.<br>
+communication will be from uart GP0 and GP1.
+
+Some gamepads don't have the dame layout check what the gamepad.get() bytes to see what is what.
+
+Some work to do,<br>
+
+- Find a better way to poll the usb<br>
+- Use page usage. I think that the gamepad record is 5. I should check for page usage 5 .<br>
+- Set default hat to 9. This will tell the gamepad that it is not connected yet. Modified function to take care of this.
