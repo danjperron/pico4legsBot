@@ -48,4 +48,4 @@ Some work to do,<br>
 - Use page usage. I think that the gamepad record is 5. I should check for page usage 5 .<br>
 - Set default hat to 9. This will tell the gamepad that it is not connected yet. Modified function to take care of this.
 
-Bug in Thonny!  Be aware that Thonny on see /dev/ttyAMA0 so you need to flip /dev/ttyS0 to /dev/ttyAMA0.  I used "su mv" when I boot my Pi.
+Bug in Thonny!  Be aware that Thonny only see /dev/ttyAMA0. You need to flip /dev/ttyS0 to /dev/ttyAMA0.  I used "su mv" when I boot my Pi.
