@@ -14,7 +14,7 @@ PRELIMINARY
 3 - in main.c line 173. I added the poll_gamepad globally and force the hat to be center until it connects <br>
 
 
-      // Initialise sub-systems.
+        Initialise sub-systems.
         readline_init0();
         machine_pin_init();
         rp2_pio_init();
@@ -33,7 +33,7 @@ PRELIMINARY
 
 9- To get the game pad working you need to activate the python module gamepad
 
-        // from gamepad import GamePad
+        from gamepad import GamePad
         gp = GamePad()
         gp.hat() -> will return (x,y) coordonate of the hat
         gp.get() -> will return the 10 bytes record of the gamepad. X,Y,Z,Rx,Ry,Hat, buttons. 32 bits for buttons
