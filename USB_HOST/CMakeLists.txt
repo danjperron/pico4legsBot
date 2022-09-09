@@ -133,7 +133,7 @@ set(MICROPY_SOURCE_PORT
     msc_disk.c
     mbedtls/mbedtls_port.c
     hid_app.c
-    gamepad_hw.c
+    gamepad.c
 )
 
 set(MICROPY_SOURCE_QSTR
@@ -156,7 +156,7 @@ set(MICROPY_SOURCE_QSTR
     ${PROJECT_SOURCE_DIR}/modutime.c
     ${PROJECT_SOURCE_DIR}/rp2_flash.c
     ${PROJECT_SOURCE_DIR}/rp2_pio.c
-    ${PROJECT_SOURCE_DIR}/gamepad_hw.c
+    ${PROJECT_SOURCE_DIR}/gamepad.c
 )
 
 set(PICO_SDK_COMPONENTS

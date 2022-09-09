@@ -36,6 +36,7 @@
 #include "hardware/flash.h"
 #endif
 
+
 // Board and hardware specific configuration
 #define MICROPY_HW_MCU_NAME                     "RP2040"
 #define MICROPY_HW_ENABLE_UART_REPL             (1) // useful if there is no USB
@@ -228,6 +229,8 @@ extern void mp_thread_end_atomic_section(uint32_t);
         if (get_core_num() == 0) { MICROPY_HW_USBDEV_TASK_HOOK } \
         extern void mp_handle_pending(bool); \
         mp_handle_pending(true); \
+        extern void poll_gamepad();\
+        poll_gamepad();\
     } while (0)
 
 #define MICROPY_EVENT_POLL_HOOK \
