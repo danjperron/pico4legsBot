@@ -18,6 +18,6 @@ The STL folder contains the 3Dprint parts code.
 
 -Links<br>
 <a href="https://www.tinkercad.com/things/6ZhC9Yglp2E-pico-rc-servo-on-leg"> Tinkercad Design</a><br>
-<a href="https://youtu.be/nC8gTRUxHxI">Youtube video</a>
+<a href="https://youtu.be/nC8gTRUxHxI">Youtube video</a><br>
 <a href="https://youtu.be/K8TxNaSnl-0">Youtube video with gamepad USB dongle directly to pico</a>
 
