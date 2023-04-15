@@ -1,11 +1,16 @@
 PRELIMINARY 
 
+** update with new Micropython version
+
 <img src="Pico_gamepad.jpg">
-1 - Add gamepad.c and hid_app.c in ports/rp2 <br>
+1 - Add gamepad.c and hid_app.c in ports/rp2 <br><br>
+
+*** please do not copy over the CMakeLists.txt in my github. Just modify your current CMakeLists.txt<br>
 2 - In CMakeLists.txt I added. gamepad.c  and hid_app.c in set(MICROPY_SOURCE_PORT<br>
-3 - In CMakeLists.txt I added gamepad.c   in set(MICROPY_SOURCE_QSTR <br>
-4-  In mpconfigport.h I change MICROPY_HW_ENABLE_USBDEV to (0) and (1) for UART<br>
-5-  In mpconfigport.h add poll_gamepad() 
+3 - In CMakeLists.txt I added ${PROJECT_SOURCE_DIR}/gamepad.c  in set(MICROPY_SOURCE_QSTR <br>
+4 - In CMakeLists.txt I added tinyusb_host in set(PICO_SDK_COMPONENTS<br><br>
+5 -  In mpconfigport.h I change MICROPY_HW_ENABLE_USBDEV to (0) and (1) for UART<br>
+6 -  In mpconfigport.h add poll_gamepad() 
 
 	#define MICROPY_EVENT_POLL_HOOK_FAST \
 	do { \
@@ -16,11 +21,13 @@ PRELIMINARY
 	poll_gamepad();\
 	} while (0)
 
-6-  In tusbconfig.h I set #define CFG_TUSB_RHPORT0_MODE   (OPT_MODE_HOST)
+7 -  I rename shared/tinyusb/tusbconfig.h  to  tusbconfig.original.h<br>
 
-7- recompile<br>
+8 -  I copy tusbconfig.h from my github to shared/tinyusb<br>
 
-9- To get the game pad working
+9 - recompile<br>
+
+10 - To get the game pad working
 
 	import gamepad as gp
 	gp.hat() -> will return (x,y) coordonate of the hat
