@@ -2,7 +2,7 @@ PRELIMINARY
 
 ** update with new Micropython version
 
-Currently the I not able to get the gamepad working in host mode.
+Currently I'm not able to get the gamepad working in host mode.
 I will check why later.
 
 In the mean time I put on dropbox a previous micropython version which works.
