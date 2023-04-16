@@ -2,6 +2,27 @@ PRELIMINARY
 
 ** update with new Micropython version
 
+Currently the I not able to get the gamepad working in host mode.
+I will check why later.
+
+In the mean time I put on dropbox a previous micropython version which works.
+
+DropBox link : <a href="https://www.dropbox.com/s/s2t0u0pw5ugmwni/pico4legsBot_micropython.tgz?dl=1"> pico 4 legs bot micropython source code</a>
+
+untar the compress file into a folder and,
+<blockquote>
+cd micropython<br>
+make -C ports/rp2 BOARD=PICO_W submodules<br>
+make -C mpy-cross<br>
+cd ports/rp2<br>
+make BOARD=PICO_W<br>
+</blockquote>
+
+The firmware.elf or firmware.uf2 will be create in build-PICO_W folder
+
+N.B. For Pico just use PICO instead of PICO_W in the make.
+
+<s>
 <img src="Pico_gamepad.jpg">
 1 - Add gamepad.c and hid_app.c in ports/rp2 <br><br>
 
@@ -26,7 +47,7 @@ PRELIMINARY
 8 -  I copy tusbconfig.h from my github to shared/tinyusb<br>
 
 9 - recompile<br>
-
+</s>
 10 - To get the game pad working
 
 	import gamepad as gp
