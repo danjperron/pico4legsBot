@@ -33,7 +33,7 @@ In /micropython/shared/tinyusb  overwrite tusb_config.h
 -  overwrite mpconfigport.h
   ** make backup ** <br>
   
-  basically in mpconfigport I enable uart serial, disable tud_task and  create tuh_task
+  basically in mpconfigport I enable uart serial, disable tud_task and  hook tuh_task and pool_gamepad
 
 <blockquote>
 cd micropython<br>
